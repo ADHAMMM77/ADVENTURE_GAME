@@ -1,0 +1,74 @@
+def the_game():
+    import time
+    import random
+    
+#next function is for the first choice where the player being attacked by something
+    def first_choice():
+        animals = ["lion", "snake", "wild animal", "bear" , "wolf"]   #a code to choose random animals
+        random_animal = random.choice(animals)
+        
+        print(f"You entered the first way and walked a little until you found some FRUITS!! But when you went to eat them... a {random_animal} attacked and killed you :(.... SO SAD!")
+    
+# next function is for the second choice that they may win if they choose red or lose if they choose green
+    def second_choice():
+        while True:
+            which_color = input("you entered the second way. you walked a little THEN you found some BERRIES!! some green berries and some red berries.. input 'green' to eat the green berries, input 'red' to eat the red ones: ").strip().lower()
+            if which_color in ["red", "green"]:
+                if which_color == "green":
+                    print("HAHAHA good try.. they were toxic and you died")
+                elif which_color == "red":
+                    print("OKAY! you ate them and you felt good then your friends found and saved you!! you won!!!")
+                    break
+            else:
+                print("please input red or green!!")
+    
+#  next function is for the third choice where the player waits then dies due to hunger
+    def third_choice():
+        print("okay- let's wait... ohh what do you expect? you just died because you were so hungry :(")
+    
+# next function is to handle wrong input choices 
+    def wrong_input():
+        while True:
+            user_input = input("input 1 to enter the first way, input 2 to enter the second way, input 3 to stay at your place:  ")
+            if user_input in ["1", "2", "3"]:
+                return user_input
+            else:
+                print("didn't I tell u to input 1 or 2 or 3 ?! try again plz!! ")
+    
+# next function is to ask the player if they wanna play again
+    def wanna_play_again():
+        while True:
+            user_input = input("u wanna play again? input 'yes' or 'no'..:").strip().lower()
+            if user_input in ["yes", "no"]:
+                return user_input
+            else:
+                print("plz input yes or no!!!!")
+    
+
+    while True:
+        print("you were on an expedition in the forest")
+        time.sleep(2)
+        print("and then you got lost..")
+        time.sleep(2)
+        print("you have been lost in the forest for about a whole day!")
+        time.sleep(2)
+        print("now you must search for some food to stay alive until your friends find you!")
+        time.sleep(2)
+        print("now there are two ways in front of you. the first one is dark and a little wide, the second one is not very dark but a little narrow.")
+        time.sleep(1)
+        
+        ur_choice = wrong_input()
+
+        if ur_choice == "1":
+            first_choice()
+        elif ur_choice == "2":
+            second_choice()
+        elif ur_choice == "3":
+            third_choice()
+        
+        try_again = wanna_play_again()
+        if try_again != "yes":
+            print("Thanks for playing!")
+            break
+
+the_game()
